@@ -21,8 +21,8 @@ function getResult(firstValue, secondValue, checked_operation) {
 
     let validateCode;
 
-    let a_parsed = Number.parseFloat(firstValue);
-    let b_parsed = Number.parseFloat(secondValue);
+    let a_parsed = filterFloat(firstValue);
+    let b_parsed = filterFloat(secondValue);
 
     validateCode = validateInput(firstValue, secondValue, checked_operation);
     if (validateCode === CODE_OK) {
@@ -67,7 +67,7 @@ function validateInput(firstValue, secondValue, checked_operation) {
     if(firstValue === "" || firstValue === undefined){
         return CODE_101;
     }
-    a = Number.parseFloat(firstValue);
+    a = filterFloat(firstValue);
     if(Number.isNaN(a)){
         return CODE_104;
     }
@@ -75,7 +75,7 @@ function validateInput(firstValue, secondValue, checked_operation) {
     if(secondValue === "" || secondValue === undefined){
         return CODE_102;
     }
-    b = Number.parseFloat(secondValue);
+    b = filterFloat(secondValue);
     if(Number.isNaN(b)){
         return CODE_105;
     }
@@ -91,7 +91,12 @@ function validateInput(firstValue, secondValue, checked_operation) {
 
     return CODE_OK;
 }
-
+var filterFloat = function(value) {
+    if (/^(\-|\+)?([0-9]+(\.[0-9]+))$/
+      .test(value))
+      return Number(value);
+  return NaN;
+}
 module.exports = {
     getResult:getResult
 }
