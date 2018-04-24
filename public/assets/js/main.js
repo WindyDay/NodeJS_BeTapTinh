@@ -1,8 +1,8 @@
 
 const NAME_BTN_RADIO = 'operation';
 const ID_NOTIFICATION = 'notification';
-const ID_INPUT_FIRST_NUM = '1st-num';
-const ID_INPUT_SECOND_NUM = '2nd-num';
+const ID_INPUT_FIRST_NUM = 'firstNum';
+const ID_INPUT_SECOND_NUM = 'secondNum';
 const ID_INPUT_RESULT = 'result';
 
 
@@ -82,46 +82,46 @@ const CODE_105 = "Số thứ hai chứa ký tự không hợp lệ";
 
 // }
 
-function validateInput(firstValue, secondValue, checked_operation) {
-    let a;
-    let b;
-    let operation;
-    if(firstValue === "" || firstValue === undefined){
-        return CODE_101;
-    }
-    a = Number.parseFloat(firstValue);
-    if(Number.isNaN(a)){
-        return CODE_104;
-    }
+// function validateInput(firstValue, secondValue, checked_operation) {
+//     let a;
+//     let b;
+//     let operation;
+//     if(firstValue === "" || firstValue === undefined){
+//         return CODE_101;
+//     }
+//     a = filterFloat(firstValue);
+//     if(Number.isNaN(a)){
+//         return CODE_104;
+//     }
 
-    if(secondValue === "" || secondValue === undefined){
-        return CODE_102;
-    }
-    b = Number.parseFloat(secondValue);
-    if(Number.isNaN(b)){
-        return CODE_105;
-    }
+//     if(secondValue === "" || secondValue === undefined){
+//         return CODE_102;
+//     }
+//     b =filterFloat(secondValue);
+//     if(Number.isNaN(b)){
+//         return CODE_105;
+//     }
 
-    if(checked_operation === "" || checked_operation === undefined){
-        return CODE_103;
-    }
-    else{
-        if(checked_operation === "divide"){
-            if(b === 0) return CODE_100;
-        }
-    }
+//     if(checked_operation === "" || checked_operation === undefined){
+//         return CODE_103;
+//     }
+//     else{
+//         if(checked_operation === "divide"){
+//             if(b === 0) return CODE_100;
+//         }
+//     }
 
 
-    return CODE_OK;
+//     return CODE_OK;
     
 
     
 
-}
+// }
 
-function printResult(result){
-    document.getElementById(ID_INPUT_RESULT).value = result;
-}
+// function printResult(result){
+//     document.getElementById(ID_INPUT_RESULT).value = result;
+// }
 
 function printNotification(code){
     document.getElementById(ID_NOTIFICATION).innerText=code;
@@ -136,7 +136,8 @@ function loseFocus(obj){
             printNotification(CODE_102) ;
         return;
     }
-    let a = Number.parseFloat(value);
+    let a = filterFloat(value);
+    console.log(a)
     if(Number.isNaN(a)){
         if(obj.id === ID_INPUT_FIRST_NUM)
             printNotification(CODE_104) ;
@@ -148,3 +149,9 @@ function loseFocus(obj){
     printNotification(CODE_BLANK);
 }
 
+var filterFloat = function(value) {
+    if (/^(?=.)([+-]?([0-9]*)(\.([0-9]+))?)$/
+      .test(value))
+      return Number(value);
+  return NaN;
+}

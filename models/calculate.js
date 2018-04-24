@@ -91,12 +91,14 @@ function validateInput(firstValue, secondValue, checked_operation) {
 
     return CODE_OK;
 }
+
 var filterFloat = function(value) {
-    if (/^(\-|\+)?([0-9]+(\.[0-9]+))$/
+    if (/^(?=.)([+-]?([0-9]*)(\.([0-9]+))?)$/
       .test(value))
       return Number(value);
   return NaN;
 }
+
 module.exports = {
     getResult:getResult
 }
