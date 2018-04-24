@@ -1,3 +1,4 @@
+
 const NAME_BTN_RADIO = 'operation';
 const ID_NOTIFICATION = 'notification';
 const ID_INPUT_FIRST_NUM = '1st-num';
@@ -14,55 +15,72 @@ const CODE_103 = "Vui lòng chọn phép toán";
 const CODE_104 = "Số thứ nhất chứa ký tự không hợp lệ";
 const CODE_105 = "Số thứ hai chứa ký tự không hợp lệ";
 
-function calculate() {
-    let firstValue = document.getElementById(ID_INPUT_FIRST_NUM).value;
-    let secondValue = document.getElementById(ID_INPUT_SECOND_NUM).value;
-    let checked_operation = "";
+// $("#form").submit(function(e) {
 
-    let validateCode;
+//     var url = "/calculate"; // the script where you handle the form input.
 
-    let a_parsed = Number.parseFloat(firstValue);
-    let b_parsed = Number.parseFloat(secondValue);
+//     $.ajax({
+//            type: "GET",
+//            url: url,
+//            data: $("#form").serialize(), // serializes the form's elements.
+//            success: function(data)
+//            {
+//                alert(data); // show response from the php script.
+//            }
+//          });
 
-    const operation_values = document.getElementsByName(NAME_BTN_RADIO);
-    for (element of operation_values) {
-        if (element.checked) {
-            checked_operation = element.value;
-        }
-    }
-    validateCode = validateInput(firstValue, secondValue, checked_operation);
-    if (validateCode === CODE_OK) {
-        switch (checked_operation) {
-            case "plus":
-                {
-                    printResult(a_parsed + b_parsed);
-                    break;
-                }
-            case "minus":
-                {
-                    printResult(a_parsed - b_parsed);
-                    break;
-                }
-            case "multiply":
-                {
-                    printResult(a_parsed * b_parsed);
-                    break;
-                }
-            case "divide":
-                {
-                    printResult(a_parsed / b_parsed);
-                    break;
-                }
-            default:
-                {
-                    break;
-                }
-        }
-    }
-    printNotification(validateCode);
+//     e.preventDefault(); // avoid to execute the actual submit of the form.
+// });
+
+// function calculate() {
+//     let firstValue = document.getElementById(ID_INPUT_FIRST_NUM).value;
+//     let secondValue = document.getElementById(ID_INPUT_SECOND_NUM).value;
+//     let checked_operation = "";
+
+//     let validateCode;
+
+//     let a_parsed = Number.parseFloat(firstValue);
+//     let b_parsed = Number.parseFloat(secondValue);
+
+//     const operation_values = document.getElementsByName(NAME_BTN_RADIO);
+//     for (element of operation_values) {
+//         if (element.checked) {
+//             checked_operation = element.value;
+//         }
+//     }
+//     validateCode = validateInput(firstValue, secondValue, checked_operation);
+//     if (validateCode === CODE_OK) {
+//         switch (checked_operation) {
+//             case "plus":
+//                 {
+//                     printResult(a_parsed + b_parsed);
+//                     break;
+//                 }
+//             case "minus":
+//                 {
+//                     printResult(a_parsed - b_parsed);
+//                     break;
+//                 }
+//             case "multiply":
+//                 {
+//                     printResult(a_parsed * b_parsed);
+//                     break;
+//                 }
+//             case "divide":
+//                 {
+//                     printResult(a_parsed / b_parsed);
+//                     break;
+//                 }
+//             default:
+//                 {
+//                     break;
+//                 }
+//         }
+//     }
+//     printNotification(validateCode);
 
 
-}
+// }
 
 function validateInput(firstValue, secondValue, checked_operation) {
     let a;
