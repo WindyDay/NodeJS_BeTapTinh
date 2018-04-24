@@ -147,3 +147,4 @@ function loseFocus(obj){
 
     printNotification(CODE_BLANK);
 }
+

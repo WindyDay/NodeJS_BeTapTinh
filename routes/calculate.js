@@ -16,7 +16,7 @@ router.get('/', (req, res) =>{
     let checked_operation = req.query.operation;
     let result = calculate.getResult(firstValue, secondValue, checked_operation);
 
-    res.send(result);
+    res.render('index', result);
 })
 
 

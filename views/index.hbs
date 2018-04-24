@@ -1,77 +1,82 @@
-    <div class="container-fluid  ">
-        <div class="container bglightgray ">
-            <h1 class="title">Bé tập tính</h1>
-            <form  id="form" name="form">
-                <div class="row">
-                    <!-- First column -->
-                    <div class="col-md-8 bgred">
-                        <div class="row equal">
-                            <div class="col-md-4">
-                                <label for="#firstNum">Số thứ nhất</label>
-                            </div>
-                            <div class="col-md-8">
-
-                                <input type="text" name="firstNum" id="firstNum" class="form-control" autocomplete="off"  onfocusout="loseFocus(this)" value={{firstNum}}>
-                            </div>
-                        </div>
-                        <div class="row equal bgcyan">
-                            <div class="col-md-4">
-                                <label for="#secondNum">Số thứ hai</label>
-                            </div>
-                            <div class="col-md-8">
-
-                                <input type="text" name="secondNum" id="secondNum" class="form-control" autocomplete="off"  onfocusout="loseFocus(this)" value={{secondNum}}>
-                            </div>
-                        </div>
-                        <div class="row equal">
-                            <div class="col-md-4">
-                                <label for="#result">Kết quả</label>
-                            </div>
-                            <div class="col-md-8">
-
-                                <input type="text" name="result" id="result" class="form-control" autocomplete="off" value={{result}}>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End first column -->
-
-                    <!-- second col -->
-                    <div class="col-md-4 bgcyan">
-                        <div class="row equal">
-                            <label class="radio-inline col-md-6">
-                                <input type="radio" name="operation" id="plus" value="plus"> Cộng</label>
-                            <label class="radio-inline col-md-6">
-                                <input type="radio" name="operation" id="minus" value="minus"> Trừ</label>
-
-                        </div>
-                        <div class="row equal bgred">
-
-                            <label class="radio-inline col-md-6">
-                                <input type="radio" name="operation" id="multiply" value="multiply"> Nhân</label>
-                            <label class="radio-inline col-md-6">
-                                <input type="radio" name="operation" id="divide" value="divide"> Chia</label>
-                        </div>
-
-                        <div class="row equal">
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-danger" >Tính</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End second col -->
-                </div>
-            </form>
-
-            <!-- notification -->
+<div class="container-fluid  ">
+    <div class="container bglightgray ">
+        <h1 class="title">Bé tập tính</h1>
+        <form action="/calculate">
             <div class="row">
-                <div class="col-md-3">
-                    <label>Thông báo</label>
+                <!-- First column -->
+                <div class="col-md-8 bgred">
+                    <div class="row equal">
+                        <div class="col-md-4">
+                            <label for="#firstNum">Số thứ nhất</label>
+                        </div>
+                        <div class="col-md-8">
 
+                            <input type="text" name="firstNum" id="firstNum" class="form-control" autocomplete="off" onfocusout="loseFocus(this)" value={{firstNum}}>
+                        </div>
+                    </div>
+                    <div class="row equal bgcyan">
+                        <div class="col-md-4">
+                            <label for="#secondNum">Số thứ hai</label>
+                        </div>
+                        <div class="col-md-8">
+
+                            <input type="text" name="secondNum" id="secondNum" class="form-control" autocomplete="off" onfocusout="loseFocus(this)" value={{secondNum}}>
+                        </div>
+                    </div>
+                    <div class="row equal">
+                        <div class="col-md-4">
+                            <label for="#result">Kết quả</label>
+                        </div>
+                        <div class="col-md-8">
+
+                            <input type="text" name="result" id="result" class="form-control" autocomplete="off" value={{result}}>
+                        </div>
+                    </div>
                 </div>
-                <span class="col-md-9">
-                    <span id="notification">{{notification}}</span>
-                </span>
-            </div>
+                <!-- End first column -->
 
+                <!-- second col -->
+                <div class="col-md-4 bgcyan">
+                    <div class="row equal">
+                        <label class="radio-inline col-md-6">
+                            <input type="radio" name="operation" id="plus" value="plus" {{setChecked operation 'plus'}}> Cộng</label>
+                        <label class="radio-inline col-md-6">
+                            <input type="radio" name="operation" id="minus" value="minus" {{setChecked operation 'minus'}}> Trừ</label>
+
+                    </div>
+                    <div class="row equal bgred">
+
+                        <label class="radio-inline col-md-6">
+                            <input type="radio" name="operation" id="multiply" value="multiply" {{setChecked operation 'multiply'}}> Nhân</label>
+                        <label class="radio-inline col-md-6">
+                            <input type="radio" name="operation" id="divide" value="divide" {{setChecked operation 'divide'}}> Chia</label>
+                    </div>
+
+                    <div class="row equal">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-danger">Tính</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- End second col -->
+            </div>
+        </form>
+
+        <!-- notification -->
+        <div class="row">
+            <div class="col-md-3">
+                <label>Thông báo</label>
+
+            </div>
+            <span class="col-md-9">
+                <span id="notification">{{notification}}</span>
+            </span>
         </div>
+
     </div>
+</div>
+
+<!-- Optional JavaScript -->
+<script src="assets/js/main.js"></script>
+
+

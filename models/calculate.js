@@ -14,6 +14,7 @@ function getResult(firstValue, secondValue, checked_operation) {
     let result = {
         firstNum: firstValue,
         secondNum: secondValue,
+        operation: checked_operation,
         result: null,
         notification: null,
     }

@@ -7,6 +7,14 @@ var logger = require('morgan');
 var {route} = require('./routes');
 var usersRouter = require('./routes/users');
 
+var hbs = require("hbs")
+hbs.registerHelper ("setChecked", function (value, currentValue) {
+    if ( value == currentValue ) {
+    return "checked"
+    } else {
+    return "";
+    }
+});
 var app = express();
 
 // view engine setup
